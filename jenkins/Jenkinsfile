@@ -4,7 +4,10 @@ pipeline{
     stages{
         stage('build'){
             steps{
-                sh 'echo "Build is completed on `hostname`"'
+                sh '''
+                echo "Build is completed on `hostname`"
+                bash ${WORKSPACE}/linux/script.sh
+                '''
             }
         }
         
