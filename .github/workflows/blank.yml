@@ -35,7 +35,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
   test:
-      runs-on: runner1
+      runs-on: self-hosted
       steps:      
             - name: test1
-              run: echo "Hello from test job"
+              run: echo "Hello from test job, running on `hostname`"
