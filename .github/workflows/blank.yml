@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CI_Workflow
 
 # Controls when the workflow will run
 on:
@@ -34,3 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+  test:
+      runs-on: runner1
+      steps:      
+            - name: test1
+              run: echo "Hello from test job"
