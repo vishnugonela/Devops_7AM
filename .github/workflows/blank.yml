@@ -25,7 +25,7 @@ jobs:
       run: pip install trufflehog
 
     - name: Run Trufflehog scan
-      run: trufflehog --regex .
+      run: trufflehog --json .
 
     # Optionally, you can save the scan results as artifacts
     - name: Save Trufflehog scan results
