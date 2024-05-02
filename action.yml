@@ -7,11 +7,11 @@ inputs:
     required: true
 
 runs:
-  using: 'docker'
-  image: 'python:3.9'
-  steps:
-    - name: Install Trufflehog
-      run: pip install trufflehog
+  using: 'trufflehog'
+  image: 'trufflesecurity/trufflehog:latest'
+ # steps:
+ #   - name: Install Trufflehog
+  #    run: pip install trufflehog
 
-    - name: Run Trufflehog Scan
-      run: trufflehog ${{ inputs.repository_url }}
+  #  - name: Run Trufflehog Scan
+   #   run: trufflehog ${{ inputs.repository_url }}
