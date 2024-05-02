@@ -9,7 +9,6 @@ inputs:
 runs:
   using: 'docker'
   image: 'python:3.9'
-
   steps:
     - name: Install Trufflehog
       run: pip install trufflehog
