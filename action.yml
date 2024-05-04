@@ -9,9 +9,9 @@ inputs:
 runs:
   #using: 'trufflehog'
   image: 'trufflesecurity/trufflehog:latest'
-  steps:
-    - name: Install Trufflehog
-      run: pip install trufflehog
+ # steps:
+ #   - name: Install Trufflehog
+ #     run: pip install trufflehog
 
-    - name: Run Trufflehog Scan
-      run: trufflehog ${{ inputs.repository_url }}
+  #  - name: Run Trufflehog Scan
+  #    run: trufflehog ${{ inputs.repository_url }}
