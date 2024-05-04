@@ -7,7 +7,7 @@ inputs:
     required: true
 
 runs:
-  using: 'trufflehog'
+  #using: 'trufflehog'
   image: 'trufflesecurity/trufflehog:latest'
   steps:
     - name: Install Trufflehog
