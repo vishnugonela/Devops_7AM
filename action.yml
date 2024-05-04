@@ -9,7 +9,7 @@ inputs:
 runs:
   using: 'trufflehog'
   image: 'trufflesecurity/trufflehog:latest'
-   steps:
+  steps:
     - name: Install Trufflehog
       run: pip install trufflehog
 
