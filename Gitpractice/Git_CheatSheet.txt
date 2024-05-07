@@ -1,0 +1,40 @@
+Global Configuration Commands
+=============================
+• git config --global user.name <name> • Configures the default repository username
+• git config --global user.email <email> • Configures the default repository user email address
+• git config --system core.editor <editor> • Sets the default editor for commits and/or diffs
+• git config --global alias.<aliasname> 'git commands' • Allows you to create an alias for common git commands
+
+Basic Commands
+===============
+• git init <dirname> • Creates an empty repository in the directory dirname and initializes that repository
+• git clone <repo> • Clones and indicates remote or local repo by SSH/HTTP/HTTPS to the current directory
+• git add <file/dir> • Adds the indicated files, staging them to be committed to the repository
+• git commit -m "Message" • Commits all the staged files (new/changes) to the current repository in the active branch
+• git status • Displays the status of the current repository's files and directories (untracked/staged)
+• git rm <file/dir> • Removes a file from the existing repo cache, staging it for removal during next commit
+
+
+Logging Commands
+================
+• git log • Displays all commits to the current repository, all branches, newest to oldest
+• git log -p • Displays all commits, with the backend statistics indicating all changes/ adds/deletes
+• git log --oneline • Displays all commits by short ID and commit message
+• git log --stat • Displays all commits, including which files are changed and the number of lines added/deleted from each
+• git log --author="name" • Displays all commits by indicated author
+• git log --grep="value" • Displays all commits with text values matching the indicated value
+• git log --graph --decorate • Draws a text-based graph of the commits and commit messages with names of branches/tags
+
+Branching and Merging Commands
+==============================
+• git branch • Indicates the current/active branch
+• git branch <name> • Creates a new branch with the indicated name
+• git checkout <name> • Changes the active branch to the indicated name, if exists
+• git checkout -b <name> • Creates a new branch with the indicated name and changes to the new branch
+• git merge <name> • Merges all changes/additions/deletions from the indicated branch to the current/active branch
+
+Update/Push Commands
+====================
+• git push <remote> <branch> • Pushes changes from the local copy to the original repository on the indicated branch, creating the branch if it does not exist
+• git push <branch> • Forces a push to the remote repository even if it would result in merge errors
+• git push <remote> --all • Pushes all changes from all local branches to the original repository on the indicated branches, creating them if they do not exist
