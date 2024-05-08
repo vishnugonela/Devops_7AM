@@ -1,0 +1,49 @@
+BASIC COMMANDS of Git :
+===========================
+
+khann@KHANN1 ~/git-projects/ium-qa (next-8.3)
+
+git branch -r
+git branch
+git checkout next-8.3
+git pull
+git status
+
+
+Add the files physically in the appropriate dir and then do
+$ git add *
+$git commit -m "Adding files" 
+
+$ git pull --rebase 
+$ git push
+$ gitk --all
+
+
+How To Do Cherry Pick:
+----------------------
+Suppose you want to merge file from 8.3_cpe to 70fp01Rogers
+1.Open the git prompt and execute > git checkout 8.3_cpe 
+2.Execute > git pull
+3.Execute > gitk , it opens the window which shows the commit done.(Do not close the window,let it be open)
+4.Now use the same step1 git prompt and execute > git checkout 70fp01Rogers
+5.Execute > git pull
+6.Now go to step3's opened window of commit and select the commit you want to merge to 70fp01Rogers.Right click and then do cherry pick.
+ Cherry pick gets done.Some times you might get merge issues ,then you will have to resolve it manually OR can execute 'git mergetool' which will automatically resolve merge issues and go aheads merging.
+
+
+For Automatically merging files in Git (How to Install):
+--------------------------------------------------------
+Install P4Merge (Visual Merge tool) using p4vinst64.exe (http://www.perforce.com/downloads)
+Do the below settings on git window:	
+git config --global merge.tool p4merge
+git config --global mergetool.p4merge.path "C:/Program Files/Perforce/p4merge.exe"
+   
+
+
+
+
+
+
+
+
+
