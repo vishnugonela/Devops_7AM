@@ -1,0 +1,222 @@
+1. Variables (Static/Dynamic/Environment)
+2. Wildcards (*)
+3. Escape Characters (/ \  "")
+4. Loops ( for , while) 
+5. case  (If , ifelse, elif )
+6. Functions ( abc())
+
+Variables- Parameters"
+---------------------
+here first set of variables we will look at are $0 .. $9 and $#. 
+The variable $0 is the basename of the program as it was called. 
+$1 .. $9 are the first 9 additional parameters the script was called with. 
+The variable $@ is all parameters $1 .. whatever. The variable $*, is similar, but does not preserve any whitespace, and quoting, so "File with spaces" becomes "File" "with" "spaces". This is similar to the echo stuff we looked at in A First Script. As a general rule, use $@ and avoid $*. 
+$# is the number of parameters the script was called with. 
+
+for:
+-----
+for i <Condition>
+	<body>
+done
+
+
+
+if:
+---
+
+if [condition]
+then 
+	if [condition]
+	then
+		<Body>
+	fi
+else
+	<Body>
+fi
+
+Functions:
+=========
+
+funname()            -----------> Fun Declaration
+{
+  BODY statements
+}
+
+funname       ----> Calling Function
+
+Crontab:
+========
+
+crontab -e
+
+* * * * * 
+Minutes [0-59]
+Hours   [0-23]
+Day     [1-31]
+Month   [1-12]
+Day     [0-7] 7/0 is sunday 
+
+crontab -e     ===Edit
+*/5 * * * *  bash /root/first.sh > output.txt
+
+crontab -r      ===Remove
+
+crontab -l
+ -i
+
+Sed (Stream Editor):
+====================
+
+Usage : sed [Option] ... {script-other-script} [input-file]...
+
+s/pattern1/pattern2/
+p ---Prints the line
+d ---Deletes the line
+
+ex:- cat /etc/passwd  | sed 'd'
+     sed -e 'd' /etc/passwd
+cat /etc/passwd  | sed '1d'
+cat /etc/passwd  | sed '4,10d'
+cat /etc/passwd  | sed '4,+5d'
+cat /etc/passwd  | sed '2,5!d'
+cat /etc/passwd  | sed '3~3d'
+cat /etc/passwd  | sed -n '4,10p'
+
+substitutuion:- cat /etc/passwd | sed 's/root/vishnu/g'
+
+Flags:-
+g -----> Replaces all matches
+NUMBER  ----Replaces only NUMBERth match
+p  ----Prints pattern space
+w  ----Write results to file
+I/i ----> Matches in case-senstive 
+M/m ----->  
+
+cat /etc/passwd | sed 's:/root:/amrood:g'
+: ----delimiter
+cat /etc/passwd | sed 's/guru//g' ----- Replace with empty string
+
+cat /etc/passwd | sed '5s/oldstring/newstring/g' 
+or
+sed '5s/old/new/' /etc/passwd
+sed '1,5s/old/new/' /etc/passwd
+
+cat /etc/passwd | sed -n '/root/p'
+
+charcaters:-
+^ ----Beginning of the line
+$ ----Matches end of line 
+. ----Matches any Single charachater
+* ----Matches any occurance
+[chars] ----custom charchters
+
+/a.z/
+/a*z/
+/[tT]his/
+/^$/
+/^.*$/
+/ */
+/^$/
+[a-z]	
+[A-Z]
+[0-9]
+[a-zA-Z]
+[a-zA-Z0-9]
+
+
+AWK  -Finds and Replaces text, database sort/validate/index
+===========================================================
+
+-F FS ----> FS field seperator Ex:- -F "/"
+-f Sprgfile -- Dprgfile 
+-mf NNN /mr NNN ----> f max no.of fields , r max record size 
+-W ---> Grep experession
+
+ex:- ls -l | awk '{print $2}'
+ls -l | awk  '{print NR "- " }'
+	
+awk 'NF > 0' file.txt -----Non-empty value of a file
+
+awk '{if (length($0) > max) max = length($0) } END {print max}' ---Print maximum length of line in any file.
+
+Print some random numbers between 1-50 of 5
+awk 'BEGIN {for (i=0; i<=5 ; i++ ) print int(50 * rand())}'
+
+Count the lines in a file
+awk 'END {print NR}' 
+
+Arithematic Operators:
+=======================
++ , - , * ,/ , %
+
+Relational Operators:
+=======================
+
+-eq   ex:- [$a -ea $b]
+-ne   ex:- [$a -na $b]
+-gt   ex:- [$a -gt $b] ---is not true
+-lt   ex:- [$a -lt $b]
+-ge   ex:- [$a -ge $b]
+-le   ex:- [$a -le $b]
+
+Boolean Operators:
+==================
+! ---logical negation   ex:- [!false] 
+-o ----Logial OR
+-a  ---Logical AND 
+
+ex:  [$a -lt 20 -a $b -gt 100 ]
+
+String Operators:
+=================
+= --> equal 
+!= ---Checking 2 operators equal or not
+-z  ---> checks given string is zero or not
+-n  ----> checks given string is zero or not , true
+str  ----> checks if str is not the empty string ex:- str [$a]
+
+File Operators:
+===============
+-b file -----> block specified file ex:- [-b $file]
+-c file  -----> Character special file
+-d file ------> directory 
+-f file -----> file or not
+-g file ------> checks file has group ID or not
+-u file  ------> checks if file has set with user ID
+-k file -------> stick bit set
+-p file -----> checks if file has piped
+-t file -----> check if file opened and assocaited to terminal
+-r file -----> checks file is readable or not
+-w
+-x
+-s file ----> checks file size is >0
+-e file -----> checks file is existed or not 
+
+
+Streams
+=======
+stdin(0) stdout(1) stderr(2)
+
+EOF 
+overwrite:
+----------
+> ----std output 
+< ----std input
+2> ---std error
+Append:
+-------
+>> ----std output 
+<< ----std input
+2>> ---std error
+
+cat "Hello" > file.txt
+cat "Hello" >> file.txt
+
+cat Hello" 2> file.txt
+
+Pipes:
+======
+
+command1 | command2
+
+
