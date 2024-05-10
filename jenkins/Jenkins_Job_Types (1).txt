@@ -1,0 +1,53 @@
+
+Job/Project Types
+==================
+
+Freestyle Project :- 
+	This is the most "common type" of project. The build step for this
+	type of project normally executes a shell (Linux) or batch
+	(Windows) command. 
+
+
+Pipeline:
+
+	This type of project used to be called a "workflow". These projects
+	are normally written in Jenkins Domain Specific Language (DSL).
+	
+	These types of projects are for things that do not fit in a freestyle
+	project, because they are too complicated or span multiple nodes.
+
+
+Multi-Configuration Project:
+
+	This is for projects that will be tested on "multiple environments", and
+	require different configurations, depending on those environments.
+
+
+Git-Hub Organization:
+
+	This type of project can use the "source control platform's organization" and
+	allow Jenkins to act on Jenkinsfiles stored within the organization’s
+	repositories.
+
+
+Folder:
+	This provides a method to group projects together. This is not technically a
+	project. It acts as a type of directory structure for the projects, and the folder
+	name becomes part of the path of the projects.
+
+
+Multi-Branch Pipeline:
+	In this type of project, Jenkins uses a "Jenkinsfile to mark repositories". If a
+	branch is created in that repository, Jenkins will make a new project in Jenkins
+	for that branch.
+
+Job / Project Scope:
+
+	This includes all of the items that are part of that particular Job / Project. In
+	some cases, there are Global libraries that are brought into the scope of a
+	project simply by being included. Other items that are declared within a
+	project only exist in that project’s scope, and are not available as a shared
+	resource.
+
+
+
